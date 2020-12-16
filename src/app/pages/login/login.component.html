@@ -1,0 +1,63 @@
+
+<div class="login">
+  <br/><br/> <br/><br/><br/>
+  <h1 align="center" class="display-4 mb-5" style="color: white">{{ this.translate.data["LOGIN1"] | translate }}</h1>
+  <div style="width:40%; margin: 25px auto; ">
+
+    <div class="alert alert-danger" *ngIf="isInvalid" style="color:#dddddd;background-color: #84410f">
+      {{ this.translate.data["LOGIN2"] | translate }}
+    </div>
+    <div class="alert alert-info" *ngIf="isLogout" style="color:#dddddd;background-color: #84410f">
+      {{ this.translate.data["LOGIN3"] | translate }}
+    </div>
+
+
+    <form #form='ngForm' (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label style="color: white">{{ this.translate.data["LOGIN4"] | translate }}</label>
+        <input type="text" class="form-control form-control-lg" id="email" name="email" placeholder="Enter email"
+               required autofocus [(ngModel)]="model.username" #email="ngModel" autocomplete="email" >
+        <div [hidden]="email.valid || email.pristine" class="alert alert-danger"  style="color:#dddddd">
+          {{ this.translate.data["LOGIN5"] | translate }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label style="color: white">{{ this.translate.data["LOGIN6"] | translate }}</label>
+        <input type="password" class="form-control form-control-lg" id="password" name="password"  autocomplete="password"
+               placeholder="Password" required [(ngModel)]="model.password" #password='ngModel'>
+        <div [hidden]="password.valid || password.pristine" class="alert alert-danger"  style="color:#dddddd">
+          {{ this.translate.data["LOGIN7"] | translate }}
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div>
+          <input type="checkbox" id="remember_me" name="remember-me" [(ngModel)]="model.remembered">
+          <label for="remember_me" class="inline" style="color: white">{{ this.translate.data["LOGIN8"] | translate }}</label>
+          <a class="float-right" routerLink="/register">{{ this.translate.data["LOGIN9"] | translate }}</a>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <button [disabled]="!form.form.valid" type="submit" class="btn btn-lg btn-primary btn-block">{{ this.translate.data["LOGIN10"] | translate }}</button>
+      </div>
+    </form>
+
+    <strong>Sample Users</strong>
+    <table style="width: 100%;" id="sampleLoginTable">
+      <tr>
+        <td><a
+          (click)="fillLoginFields('quynhly@g.com','123456')"
+          href="javascript:void(0)">customer1</a></td>
+        <td><a
+          (click)="fillLoginFields('employee1@gmail.com','123456')"
+          href="javascript:void(0)">employee1</a></td>
+        <td><a
+          (click)="fillLoginFields('admin@admin.com','12345678')"
+          href="javascript:void(0)">admin</a></td>
+      </tr>
+    </table>
+
+  </div>
+</div>

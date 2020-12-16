@@ -1,0 +1,217 @@
+
+<header class="trasparent_nav">
+  <div class="wrapper">
+    <div class="logo" style="margin: 25px 10px">
+      <a href="#"><img src="../../../assets/images/logo3.png" alt="Fertile" height="50" width="160"></a>
+
+    </div>
+
+    <nav>
+      <ul>
+        <li><a *ngIf="!currentUser || currentUser.role == Role.Customer" class="nav-item nav-link"
+               routerLink="/slide">
+          {{ this.translate.data["HOME"] | translate }}</a></li>
+
+
+        <li class="nav-item dropdown has-mega-menu" style="position:static;">
+          <a *ngIf="!currentUser || currentUser.role == Role.Customer"
+            class="nav-link dropdown-toggle" data-toggle="dropdown" routerLink="/category" role="button" aria-haspopup="true" aria-expanded="false">{{ this.translate.data["MENCLOTHING"] | translate }}</a>
+          <div class="dropdown-content" style="width:80%;  left: 140px">
+            <div class="px-0 container">
+              <div class="row">
+                <div class="col-md-3">
+                  <br/>
+                  <a class="nav-item nav-link" routerLink="/category/11">
+                    {{ this.translate.data["Shirt Men"] | translate }}
+                  </a >
+                  <a class="nav-item nav-link" routerLink="/category/12">
+                    {{ this.translate.data["T-shirt Men"] | translate }}
+                  </a >
+                  <a  class="nav-item nav-link" routerLink="/category/13">
+                    {{ this.translate.data["Suit Men"] | translate }}
+                  </a>
+                  <a  class="nav-item nav-link" routerLink="/category/14">
+                    {{ this.translate.data["Jacket Men"] | translate }}
+                  </a>
+                  <a  class="nav-item nav-link" routerLink="/category/15">
+                    {{ this.translate.data["Cap Men"] | translate }}
+                  </a>
+                </div>
+                <div class="col-md-3">
+                  <br/>
+                  <a class="nav-item nav-link" routerLink="/category/16">{{ this.translate.data["Belt Men"] | translate }}</a>
+                  <a class="nav-item nav-link" routerLink="/category/17">{{ this.translate.data["Hand Bag Men"] | translate }}</a>
+                  <a class="nav-item nav-link" routerLink="/category/18">{{ this.translate.data["Glasses Men"] | translate }}</a>
+                  <a class="nav-item nav-link" routerLink="/category/19">{{ this.translate.data["Men's Watches"] | translate }}</a>
+                  <a class="nav-item nav-link" routerLink="/category/20">{{ this.translate.data["Leather shoes"] | translate }}</a>
+                </div>
+
+                <div class="col-md-4">
+
+                  <img src="../../../assets/images/e10.jpg" height="300" width="550"/>
+                </div>
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown has-mega-menu" style="position:static;">
+          <a *ngIf="!currentUser || currentUser.role == Role.Customer"
+            class="nav-link dropdown-toggle" data-toggle="dropdown" routerLink="/category" yrole="button" aria-haspopup="true" aria-expanded="false">{{ this.translate.data["WOMENCLOTHING"] | translate }}</a>
+          <div class="dropdown-content" style="width:80%;  left: 140px">
+            <div class="px-0 container">
+              <div class="row">
+                <div class="col-md-4">
+
+                  <img src="../../../assets/images/e8.jpg" height="300" width="550"/>
+                </div>
+                <div class="col-md-3" style="left: 180px">
+                  <br/>
+                  <a class="nav-item nav-link" routerLink="/category/0">
+                    {{ this.translate.data["Shirt Women"] | translate }}
+                  </a >
+                  <a class="nav-item nav-link" routerLink="/category/1">
+                    {{ this.translate.data["Suit Women"] | translate }}
+                  </a >
+                  <a class="nav-item nav-link" routerLink="/category/2">
+                    {{ this.translate.data["T-shirt Women"] | translate }}
+                  </a >
+                  <a  class="nav-item nav-link" routerLink="/category/3">
+                    {{ this.translate.data["Skirt"] | translate }}
+                  </a>
+                  <a  class="nav-item nav-link" routerLink="/category/4">
+                    {{ this.translate.data["Jacket Women"] | translate }}
+                  </a>
+                  <a  class="nav-item nav-link" routerLink="/category/5">
+                    {{ this.translate.data["Cap Women"] | translate }}
+                  </a>
+                </div>
+                <div class="col-md-4" style="left: 150px">
+                  <br/>
+                  <a class="nav-item nav-link" routerLink="/category/6">{{ this.translate.data["Belt Women"] | translate }}</a>
+                  <a class="nav-item nav-link" routerLink="/category/7">{{ this.translate.data["Hand Bag Women"] | translate }}</a>
+                  <a class="nav-item nav-link" routerLink="/category/8">{{ this.translate.data["Glasses Women"] | translate }}</a>
+                  <a class="nav-item nav-link" routerLink="/category/9">{{ this.translate.data["Women's Watches"] | translate }}</a>
+                  <a class="nav-item nav-link" routerLink="/category/10">{{ this.translate.data["Sport Shoes"] | translate }}</a>
+                </div>
+
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+        <li class="nav-item dropdown has-mega-menu" style="position:static;">
+          <a *ngIf="!currentUser || currentUser.role == Role.Customer"
+            class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{{ this.translate.data["INFOMATION"] | translate }}</a>
+          <div class="dropdown-content" style="width:82%;  left: 115px">
+            <div class="px-0 container">
+              <div class="row">
+
+                <div class="col-md-4">
+
+                  <img src="../../../assets/images/e19.jpg" height="300" width="550"/>
+                </div>
+                <div class="col-md-3"style="left: 200px" >
+                  <br/>
+                  <a *ngIf="!currentUser || currentUser.role == Role.Customer" class="nav-item nav-link"
+                                                                               routerLink="/about">
+                    {{ this.translate.data["ABOUT"] | translate }}</a>
+                  <a *ngIf="!currentUser || currentUser.role == Role.Customer" class="nav-item nav-link"
+                                                                               routerLink="/contact">
+                    {{ this.translate.data["CONTACT"] | translate }}</a>
+
+                </div>
+                <div class="col-md-4" style="left: 80px;">
+                  <br/>
+                  <a  class="nav-item nav-link" routerLink="/size">
+                    {{ this.translate.data["SIZE1"] | translate }}
+                  </a >
+                  <a   class="nav-item nav-link" routerLink="/return">
+                    {{ this.translate.data["RETURN POLICY"] | translate }}
+                  </a>
+                  <a   class="nav-item nav-link" routerLink="/warranty">
+                    {{ this.translate.data["GUARANTEE"] | translate }}
+                  </a>
+                  <a  class="nav-item nav-link" routerLink="/shipping">
+                    {{ this.translate.data["TRANSPORT"] | translate }}
+                  </a>
+                  <a   class="nav-item nav-link" routerLink="/store">
+                    {{ this.translate.data["STORE"] | translate }}
+                  </a>
+
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </li>
+
+
+        <li class="dropdown">
+          <a class="nav-item nav-link"  *ngIf="!currentUser || currentUser.role == Role.Customer">
+            <i class="fa fa-globe"></i>
+            </a>
+          <div class="dropdown-langugue">
+            <a  class="nav-item nav-link"
+                href="javascript:;;" (click)="setLang(lang.langCode)"
+                *ngFor="let lang of languageList">
+              <i class="fa fa-flag"></i>
+              {{ lang.language }} ({{ lang.langCode }})
+            </a >
+          </div>
+<!--        </li>-->
+        <li ><a *ngIf="!currentUser || currentUser.role == Role.Customer"
+          class="nav-item nav-link " routerLink="/cart">
+          <i class="fas fa-shopping-cart"></i>
+        </a></li>
+        <li ><a *ngIf="!currentUser || currentUser.role == Role.Customer"
+                class="nav-item nav-link " routerLink="/favorite">
+          <i class="fas fa-heart"></i>
+        </a></li>
+
+        <ng-container *ngIf="currentUser; else noUser">
+          <li><a *ngIf="currentUser.role != Role.Customer" class="nav-item nav-link " routerLink="/categoryList">
+            <i class="fas fa-list-ul"></i>
+            Category
+          </a></li>
+          <li><a *ngIf="currentUser.role != Role.Customer" class="nav-item nav-link " routerLink="/productList">
+            <i class="fas fa-list-ul"></i>
+            Products
+          </a></li>
+          <li><a class="nav-item nav-link " routerLink="/order">
+            <i class="fas fa-list-ul"></i>
+            {{ this.translate.data["Orders"] | translate }}
+          </a></li>
+          <li><a *ngIf="currentUser.role != Role.Customer" class="nav-item nav-link " routerLink="/userList">
+            <i class="fas fa-list-ul"></i>
+            Users
+          </a></li>
+          <li><a *ngIf="currentUser.role != Role.Customer" class="nav-item nav-link " routerLink="/chart">
+            <i class="fas fa-list-ul"></i>
+            Chart
+          </a></li>
+          <li><a class="nav-item nav-link " routerLink="/profile">
+            {{name}}
+          </a></li>
+          <li><a class="nav-item nav-link " (click)="logout()" routerLink="/login" [queryParams]="{logout: true}">
+            {{ this.translate.data["Sign Out"] | translate }}
+          </a></li>
+        </ng-container>
+
+        <ng-template #noUser>
+          <li><a class="nav-item nav-link " routerLink="/login">
+            {{ this.translate.data["Login"] | translate }}
+          </a></li>
+          <li><a class="nav-item nav-link " routerLink="/register">
+            {{ this.translate.data["Sign up"] | translate }}
+          </a></li>
+        </ng-template>
+      </ul>
+
+    </nav>
+  </div>
+</header>
+
+
+

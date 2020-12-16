@@ -1,0 +1,41 @@
+<br/><br/><br/><br/><br/>
+<h1 align="center" class="display-4 ">User List</h1>
+<a *ngIf="currentUser?.role == Role.Customer" style="color: inherit"
+   routerLink="/seller/product/new" class="float-right mb-3"><i class="fas fa-plus fa-2x">Add</i>
+</a>
+<table id="table" class="table table-striped text-center" style="width:100%;">
+    <thead>
+    <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Phone</th>
+        <th scope="col">Address</th>
+        <th scope="col">Password</th>
+        <th scope="col">Role</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let user of page?.content">
+        <td class="align-middle">{{user.name}}</td>
+        <td class="align-middle">{{user.email}}</td>
+        <td class="align-middle">{{user.phone}}</td>
+        <td class="align-middle">{{user.address}}</td>
+        <td class="align-middle">{{user.password}}</td>
+        <td class="align-middle">{{user.role}}</td>
+        <td class="align-middle">
+            <a style="display: block" routerLink="/user/edit/{{user.email}}">
+                Edit</a>
+          <a style="display: block" routerLink="/user/new">
+            New</a>
+          <a style="display: block"
+             (click)='deleteUser(user.id)' routerLink="./">
+            Remove</a>
+
+<!--            <a *ngIf="currentUser?.role == Role.Customer" style="display: block"-->
+<!--               (click)='deleteUser(user.id)' routerLink="./">-->
+<!--                Remove</a>-->
+        </td>
+
+    </tbody>
+</table>
+<app-pagination [currentPage]="page"></app-pagination>

@@ -1,0 +1,47 @@
+<br/><br/><br/><br/><br/>
+<h1 align="center" class="display-4 mb-5">Edit Category</h1>
+<div style="width:40%; margin: 25px auto">
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+        <!--Id-->
+<!--        <div class="form-group">-->
+<!--            <label for="categoryId">CategoryID</label>-->
+<!--            <input [readOnly]="isEdit" [disabled]="isEdit" [(ngModel)]="category.categoryId" type="text"-->
+<!--                   class="form-control form-control-lg" #categoryIdInput-->
+<!--                   id="categoryId" name="categoryId" required #categoryId="ngModel">-->
+<!--            <div *ngIf="categoryIdInput.invalid && (categoryIdInput.dirty ||categoryIdInput.touched)">-->
+<!--                <div *ngIf="categoryIdInput.errors.required">-->
+<!--                    Name is required.-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+        <!--Name-->
+        <div class="form-group">
+            <label>CategoryName</label>
+            <input [(ngModel)]="category.categoryName" type="text" class="form-control form-control-lg" id="categoryName"
+                   #categoryName="ngModel"
+                   name="categoryName" placeholder="CategoryName" required>
+        </div>
+        <div *ngIf="categoryName.invalid && (categoryName.dirty ||categoryName.touched)">
+            <div *ngIf="categoryName.errors.required">
+                CategoryName is required.
+            </div>
+        </div>
+
+
+
+        <!--CategoryType-->
+      <div class="form-group">
+        <label>CategoryType</label>
+        <input [(ngModel)]="category.categoryType" type="text" class="form-control form-control-lg" id="categoryType"
+               #categoryName="ngModel"
+               name="categoryType" placeholder="CategoryType" required>
+      </div>
+
+
+        <div class="form-group">
+            <button type="submit" [disabled]="!form.form.valid" class="btn btn-lg btn-primary btn-block">Submit</button>
+        </div>
+    </form>
+
+
+</div>

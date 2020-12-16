@@ -1,0 +1,54 @@
+<br/><br/><br/><br/><br/>
+<h3 align="center" >{{ this.translate.data["Product Detail"] | translate }}</h3><br/>
+<div class="container">
+  <div class="card_detail">
+    <div class="container-fliud">
+      <div class="wrapper row">
+        <div class="preview col-md-6">
+      <img  class="card-img-top" style="width: 350px; height: 400px;margin: 0 145px" [imageZoom]="productInfo?.productIcon" [src]="productInfo?.productIcon">
+
+      </div>
+        <div class="details col-md-6" >
+      <div class="card-body"  >
+        <h4 class="card-title "  style="color: #ff7315">{{productInfo?.productName}}</h4>
+        <form name="form" #form='ngForm' (ngSubmit)="productInfo?.productStatus == 0 && addToCart()">
+          <div class="text-left">
+            <input hidden name="productId" [value]=productInfo?.productId>
+
+            <p class="card-text">
+              <strong>{{ this.translate.data["Price"] | translate }}: </strong>
+              <label id="price">{{productInfo?.productPrice | currency}}</label>
+            </p>
+            <p class="card-text"><strong>{{ this.translate.data["Stock"] | translate }}: </strong>{{productInfo?.productStock}}</p>
+
+            <label class="card-text">
+              <strong>{{ this.translate.data["Quantity"] | translate }}: </strong>
+              <input [(ngModel)]=count
+                     (change)="validateCount()"
+                     type="number"
+                     name="count"
+                     required
+                     min="1"
+                     [max]=productInfo?.productStock
+              >
+            </label>
+
+            <p class="card-test"><strong>{{ this.translate.data["Description"] | translate }}: </strong>{{productInfo?.productDescription}}</p>
+            <p class="card-test"><strong>{{ this.translate.data["Status"] | translate }}: </strong>{{ProductStatus[productInfo?.productStatus]}}</p>
+            <p class="card-text"><strong>{{ this.translate.data["Subtotal"] | translate }}: </strong>
+              <label id="subtotal">{{count * productInfo?.productPrice | currency}}</label>
+            </p>
+          </div>
+          <button type="submit" [disabled]="!form.form.valid" *ngIf="productInfo?.productStatus == 0; else offBlock"
+                  class="btn btn-primary btn-lg"
+          >{{ this.translate.data["Add to Cart"] | translate }}
+          </button>
+          <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">{{ this.translate.data["Unavailable"] | translate }}</a></ng-template>
+        </form>
+
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>

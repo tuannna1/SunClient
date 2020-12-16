@@ -1,0 +1,125 @@
+<img src="../../../assets/images/bc1.png" height="450" width="100%"/>
+<br/><br/><br/>
+
+<h1 align="center" class="display-4 mb-5">{{ this.translate.data["My Cart"] | translate }}</h1>
+
+
+<!--Section: Block Content-->
+<section>
+
+  <!--Grid row-->
+  <div class="row">
+
+    <!--Grid column-->
+    <div class="col-lg-8">
+
+              <!-- Section: Filters -->
+              <div class="col-12" style="margin: auto">
+                <table class="table table-striped text-center">
+                  <thead>
+                  <tr>
+                    <th scope="col">{{ this.translate.data["Photo"] | translate }}</th>
+                    <th scope="col">{{ this.translate.data["Name"] | translate }}</th>
+                    <th scope="col">{{ this.translate.data["Pricee"] | translate }}</th>
+                    <th scope="col">{{ this.translate.data["Quantityy"] | translate }}</th>
+                    <th scope="col">{{ this.translate.data["Subtotall"] | translate }}</th>
+                    <th scope="col">{{ this.translate.data["Action"] | translate }}</th>
+
+                  </tr>
+                  </thead>
+                  <tbody>
+
+                  <tr *ngFor="let productInOrder of productInOrders">
+                    <th class="align-middle" scope="row">
+                      <a routerLink="/product/{{productInOrder.productId}}"><img height="100px"
+                                                                                 src="{{productInOrder.productIcon}}"
+                                                                                 alt="{{productInOrder.productName}}"></a>
+                    </th>
+                    <td class="align-middle"><a
+                      routerLink="/product/{{productInOrder.productId}}">{{productInOrder.productName}}</a></td>
+                    <td class="align-middle">{{productInOrder.productPrice | currency}}</td>
+
+                    <td class="align-middle">
+                      <a (click)="minusOne(productInOrder)"><i class="fa fa-minus"></i></a>
+                      <input min="1" id="{{productInOrder.productId}}"
+                             [max]=productInOrder.productStock
+                             [(ngModel)]="productInOrder.count"
+                             (change)="onChange(productInOrder)"
+                             size="5"
+                             type="number"
+                             required
+                             name='count'>
+                      <a (click)="addOne(productInOrder)"> <i class="fa fa-plus"></i></a>
+                    </td>
+
+                    <td class="align-middle">{{productInOrder.productPrice * productInOrder.count|currency}}</td>
+                    <td class="align-middle">
+                      <a (click)="remove(productInOrder)" routerLink="./">{{ this.translate.data["Remove"] | translate }}</a>
+                    </td>
+                  </tr>
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
+    </div>
+    <!--Grid column-->
+
+    <!--Grid column-->
+    <div class="col-lg-4">
+
+      <!-- Card -->
+      <div class="card mb-3">
+        <div class="card-body">
+
+          <h5 class="mb-3"> {{ this.translate.data["Customer information"] | translate }}:</h5>
+
+          <ul class="list-group list-group-flush">
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+              {{ this.translate.data["Name"] | translate }}:
+              <span>{{currentUser.name}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+              {{ this.translate.data["Email"] | translate }}:
+              <span>{{currentUser.account}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+              {{ this.translate.data["Address"] | translate }}:
+              <span style="margin-left: 58px">{{currentUser.address}}</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 pb-0">
+              {{ this.translate.data["Phone"] | translate }}:
+              <span>{{currentUser.phone}}</span>
+            </li>
+
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 px-0 mb-3"
+                *ngIf="productInOrders?.length > 0; else empty">
+              <div>
+                <strong> {{ this.translate.data["The total amount is"] | translate }}:</strong>
+
+              </div>
+
+              <span><strong>{{ this.translate.data["Total"] | translate }}: {{total | currency}}</strong></span>
+            </li>
+          </ul>
+
+          <button (click)="checkout()" class="btn btn-warning float-right">{{ this.translate.data["Checkout"] | translate }}</button>
+
+        </div>
+      </div>
+      <ng-template #empty>
+        <h4 class="text-muted text-center">{{ this.translate.data["Cart is empty. Go to get something!"] | translate }}</h4>
+      </ng-template>
+    </div>
+  </div>
+
+</section>
+
+<!--Section: Block Content-->
+<br/><br/><br/><br/>
+<!-- //contacts -->
+
+<app-footer></app-footer>
+

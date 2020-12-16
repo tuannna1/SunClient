@@ -1,0 +1,89 @@
+<br/><br/><br/><br/><br/>
+<h1 align="center" class="display-4 mb-5">New Product</h1>
+<div style="width:40%; margin: 25px auto">
+    <form (ngSubmit)="onSubmit()">
+        <!--Id-->
+      <div class="form-group">
+        <label for="id">Id:</label>
+        <input type="text" class="form-control" placeholder="Enter Id"
+               id="id" required [(ngModel)]="product.productId" name="id">
+      </div>
+        <!--Photo-->
+        <div class="form-group">
+            <label>Photo Link</label>
+          <input [(ngModel)]="product.productIcon" type="text" class="form-control form-control-lg" id="productIcon"
+                 name="productIcon" placeholder="Photo">
+        </div>
+
+        <!--Name-->
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" placeholder="Enter Name"
+               id="name" required [(ngModel)]="product.productName" name="name">
+      </div>
+
+        <!--Category-->
+        <div class="form-group">
+            <label for="categoryType">Category</label>
+            <select class="custom-select custom-select-lg " id="categoryType" name="categoryType"
+                    [(ngModel)]="product.categoryType"
+                    required>
+              <option [ngValue]=0>Shirt Women</option>
+              <option [ngValue]=1>Suit Women</option>
+              <option [ngValue]=2>T-shirt Women</option>
+              <option [ngValue]=3>Skirt</option>
+              <option [ngValue]=4>Jacket Women</option>
+              <option [ngValue]=5>Cap Women</option>
+              <option [ngValue]=6>Belt Women</option>
+              <option [ngValue]=7>Hand Bag Women</option>
+              <option [ngValue]=8>Glasses Women</option>
+              <option [ngValue]=9>Women's Watches</option>
+              <option [ngValue]=10>Sport Shoes</option>
+              <option [ngValue]=11>Shirt Men</option>
+              <option [ngValue]=12>T-shirt Men</option>
+              <option [ngValue]=13>Suit Men</option>
+              <option [ngValue]=14>Jacket Men</option>
+              <option [ngValue]=15>Cap Men</option>
+              <option [ngValue]=16>Belt Men</option>
+              <option [ngValue]=17>Hand Bag Men</option>
+              <option [ngValue]=18>Glasses Men</option>
+              <option [ngValue]=19>Men's Watches</option>
+              <option [ngValue]=20>Leather shoes</option>
+            </select>
+        </div>
+
+        <!--Description-->
+        <div class="form-group">
+            <label>Description</label>
+            <textarea class="form-control form-control-lg text-left"
+                      id="productDescription" name="productDescription"
+                      placeholder="Description" [(ngModel)]="product.productDescription"></textarea>
+        </div>
+        <!--Price-->
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input type="text" class="form-control" placeholder="Enter price"
+               id="price" required [(ngModel)]="product.productPrice" name="price">
+      </div>
+        <!--Stock-->
+      <div class="form-group">
+        <label for="stock">Stock:</label>
+        <input type="text" class="form-control" placeholder="Enter stock"
+               id="stock" required [(ngModel)]="product.productStock" name="stock">
+      </div>
+        <!--Status-->
+        <div class="form-group">
+            <label for="productStatus">Status</label>
+            <select class="custom-select custom-select-lg " id="productStatus" name="productStatus" required
+                    [(ngModel)]="product.productStatus">
+                <option [ngValue]=0>Available</option>
+                <option [ngValue]=1>Unavailable</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <button type="submit"(click)="saveProduct()" class="btn btn-lg btn-primary btn-block">Submit</button>
+        </div>
+    </form>
+
+
+</div>

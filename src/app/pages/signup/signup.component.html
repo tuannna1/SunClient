@@ -1,0 +1,66 @@
+
+<div class="signup">
+  <br/><br/><br/><br/>
+  <!--<h6 align="center" class="display-4 mb-5" style="color: white; font-size: 16px">Sign Up</h6>-->
+  <div style="width:40%; margin: 25px auto" >
+    <form #form="ngForm" (ngSubmit)="onSubmit()">
+      <div class="form-group">
+        <label style="color: white"><b>{{ this.translate.data["SIGNUP"] | translate }}</b></label>
+        <input [(ngModel)]="user.email" type="email" class="form-control form-control-lg" id="email" name="email" placeholder="Enter email" email required autofocus  #email="ngModel">
+        <div  *ngIf="email.invalid && (email.dirty ||email.touched)" >
+          <div *ngIf="email.errors.required" style="color:#dddddd">
+            {{ this.translate.data["SIGNUP1"] | translate }}
+          </div>
+          <div *ngIf="email.errors.email" style="color:#dddddd">
+            {{ this.translate.data["SIGNUP2"] | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label style="color: white"><b> {{ this.translate.data["SIGNUP3"] | translate }}</b></label>
+        <input [(ngModel)]="user.name" type="text" class="form-control form-control-lg" id="name" name="name" placeholder="Your name" required #name="ngModel">
+        <div  *ngIf="name.invalid && (name.dirty ||name.touched)">
+          <div *ngIf="name.errors.required" style="color:#dddddd">
+            {{ this.translate.data["SIGNUP4"] | translate }}
+          </div>
+          <div *ngIf="name.errors.minlength" style="color:#dddddd">
+            {{ this.translate.data["SIGNUP5"] | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label style="color: white"><b>{{ this.translate.data["SIGNUP6"] | translate }}</b></label>
+        <input  [(ngModel)]="user.password" type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password" minlength="3" required #password="ngModel">
+        <div  *ngIf="password.invalid && (password.dirty ||password.touched)">
+          <div *ngIf="password.errors.required" style="color:#dddddd">
+            {{ this.translate.data["SIGNUP7"] | translate }}
+          </div>
+          <div *ngIf="password.errors.minlength" style="color:#dddddd">
+            {{ this.translate.data["SIGNUP8"] | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label style="color: white"><b>{{ this.translate.data["SIGNUP9"] | translate }}</b></label>
+        <input [(ngModel)]="user.phone" type="text" class="form-control form-control-lg" id="phone" name="phone" placeholder="Phone" required #phone="ngModel" >
+        <div  *ngIf="phone.invalid && (phone.dirty ||phone.touched)">
+          <div *ngIf="phone.errors.required" style="color:#dddddd">
+            {{ this.translate.data["SIGNUP10"] | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label style="color: white"><b>{{ this.translate.data["SIGNUP11"] | translate }}</b></label>
+        <input [(ngModel)]="user.address" type="text" class="form-control form-control-lg" id="address" name="address" placeholder="Address" required #address="ngModel">
+        <div  *ngIf="address.invalid && (address.dirty ||address.touched)">
+          <div *ngIf="address.errors.required" style="color:#dddddd">
+            {{ this.translate.data["SIGNUP12"] | translate }}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-lg btn-primary btn-block" [disabled]="!form.form.valid" >{{ this.translate.data["SIGNUP13"] | translate }}</button>
+      </div>
+    </form>
+  </div>
+</div>

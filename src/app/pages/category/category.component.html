@@ -1,0 +1,43 @@
+<br/><br/><br/><br/><br/>
+<h1 align="center" class="display-4 mb-5">Category</h1>
+
+<table class="table table-striped text-center">
+    <thead>
+    <tr>
+        <th scope="col">Id #</th>
+        <th scope="col">Category Name</th>
+        <th scope="col">Category Email</th>
+        <th scope="col">Create_time</th>
+        <th scope="col">Update_time</th>
+
+        <th scope="col">Action</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr *ngFor="let category of page?.content">
+        <th class="align-middle" scope="row">
+            {{category.categoryId}}
+        </th>
+        <td class="align-middle">{{category.categoryName}}</td>
+        <td class="align-middle">{{category.categoryType}}</td>
+        <td class="align-middle">{{category.createTime}}</td>
+        <td class="align-middle">{{category.updateTime}}</td>
+      <td class="align-middle">
+        <a style="display: block" routerLink="/seller/category/{{category.categoryId}}/edit">
+          Edit</a>
+        <a style="display: block" routerLink="/seller/category/new">
+          New</a>
+        <a style="display: block"
+           (click)='delete(category.categoryId)' routerLink="./">
+          Remove</a>
+
+        <a *ngIf="currentUser?.role == Role.Customer" style="display: block"
+           (click)='delete(category.categoryId)' routerLink="./">
+          Remove</a>
+      </td>
+    </tr>
+    </tbody>
+</table>
+
+<app-pagination [currentPage]="page"></app-pagination>
