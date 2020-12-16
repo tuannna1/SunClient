@@ -12,13 +12,13 @@ import {ProductInfo} from '../../models/productInfo';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'app-sale-product',
+  templateUrl: './sale-product.component.html',
+  styleUrls: ['./sale-product.component.css']
 })
-export class CardComponent implements OnInit, OnDestroy {
+export class SaleProductComponent implements OnInit, OnDestroy {
   title: string;
-  page: any;
+  pagesale: any;
   private paramSub: Subscription;
   private querySub: Subscription;
   loading = false;
@@ -42,12 +42,11 @@ export class CardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.querySub = this.route.queryParams.subscribe(() => {
-      this.update()
+      this.update();
     });
     this.paramSub = this.route.params.subscribe(() => {
-this.update()
+      this.update();
     });
-
   }
 
   ngOnDestroy(): void {
@@ -56,74 +55,19 @@ this.update()
   }
 
   update() {
-    if (this.route.snapshot.queryParamMap.get('page')) {
-      const currentPage = +this.route.snapshot.queryParamMap.get('page');
+    if (this.route.snapshot.queryParamMap.get('pages')) {
+      const currentPage = +this.route.snapshot.queryParamMap.get('pages');
       const size = +this.route.snapshot.queryParamMap.get('size');
       this.getProds(currentPage, size);
     } else {
       this.getProds();
     }
   }
-  under25() {
-    let nextPage = 1;
-    let size = 12;
-    if (this.route.snapshot.queryParamMap.get('page')) {
-      nextPage = +this.route.snapshot.queryParamMap.get('page');
-      size = +this.route.snapshot.queryParamMap.get('size');
-    }
-    this.productService.getunder25(nextPage, size).subscribe(page => this.page = page, _ => {
-      console.log("Get Orde Failed")
-    });
-  }
-  from25to50() {
-    let nextPage = 1;
-    let size = 12;
-    if (this.route.snapshot.queryParamMap.get('page')) {
-      nextPage = +this.route.snapshot.queryParamMap.get('page');
-      size = +this.route.snapshot.queryParamMap.get('size');
-    }
-    this.productService.getfrom25to50(nextPage, size).subscribe(page => this.page = page, _ => {
-      console.log("Get Orde Failed")
-    });
-  }
-  from50to100() {
-    let nextPage = 1;
-    let size = 12;
-    if (this.route.snapshot.queryParamMap.get('page')) {
-      nextPage = +this.route.snapshot.queryParamMap.get('page');
-      size = +this.route.snapshot.queryParamMap.get('size');
-    }
-    this.productService.getfrom50to100(nextPage, size).subscribe(page => this.page = page, _ => {
-      console.log("Get Orde Failed")
-    });
-  }
-  from100to200() {
-    let nextPage = 1;
-    let size = 12;
-    if (this.route.snapshot.queryParamMap.get('page')) {
-      nextPage = +this.route.snapshot.queryParamMap.get('page');
-      size = +this.route.snapshot.queryParamMap.get('size');
-    }
-    this.productService.getfrom100to200(nextPage, size).subscribe(page => this.page = page, _ => {
-      console.log("Get Orde Failed")
-    });
-  }
-  above200() {
-    let nextPage = 1;
-    let size = 12;
-    if (this.route.snapshot.queryParamMap.get('page')) {
-      nextPage = +this.route.snapshot.queryParamMap.get('page');
-      size = +this.route.snapshot.queryParamMap.get('size');
-    }
-    this.productService.getabove200(nextPage, size).subscribe(page => this.page = page, _ => {
-      console.log("Get Orde Failed")
-    });
-  }
-  getProds(page: number = 1, size: number = 12) {
+  getProds(page: number = 1, size: number = 6) {
     if (this.route.snapshot.url.length == 1) {
       this.productService.getAllInPage(+page, +size)
         .subscribe(page => {
-          this.page = page;
+          this.pagesale = page;
           this.title = 'Get Whatever You Want!';
         });
     } else { //  /category/:id
@@ -131,7 +75,7 @@ this.update()
       this.productService.getCategoryInPage(+type, page, size)
         .subscribe(categoryPage => {
           this.title = categoryPage.category;
-          this.page = categoryPage.page;
+          this.pagesale = categoryPage.page;
         });
     }
   }

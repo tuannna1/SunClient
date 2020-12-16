@@ -1,0 +1,65 @@
+
+<br/>
+
+  <div class="row">
+    <div class="col-12">
+
+      <div class="row" >
+
+          <div class="container">
+
+            <div class="row" *ngIf="!loading">
+              <!-- List of Products -->
+              <div class="col-sm-2 mb-2" *ngFor="let productInfo of page?.content | filter:searchText ">
+               <div *ngIf="ShowProduct(productInfo.productPrice)">
+                <div class="item">
+                  <div class="mb-r">
+                    <!--Card-->
+                    <div class="card card-cascade wider" >
+                      <!--Card image-->
+                      <a  style="width:158px; height:150px" routerLink="/product/{{productInfo.productId}}" >
+                        <div class="viewimg zoom overlay z-depth-2 rounded">
+                          <img class="img-fluid w-100"
+                               src="{{productInfo.productIcon}}"
+                               alt="Sample" >
+                        </div>
+                      </a>
+                      <!--/.Card image-->
+
+                      <!--Card content-->
+                      <div class="card-body text-center no-padding" style="color: #ff7315">
+                        <h6  style=" height:40px" >
+                          <strong>
+                            <a  routerLink="/product/{{productInfo.productId}}">{{productInfo.productName}}</a>
+                          </strong>
+                        </h6>
+                        <h6 class="mb-3"><strong><span>{{productInfo.productPrice | currency}}</span></strong></h6>
+                        <!--Card footer-->
+
+
+
+                            <ng-template #offBlock><button  class="btn btn-dark btn-sm px-3 mr-1 mb-2">Unavailable</button></ng-template>
+                            <button type="button" class="btn btn-primary btn-sm px-3 mr-1 mb-2 material-tooltip-main" routerLink="/product/{{productInfo.productId}}" >
+                              <i class="fa fa-eye"> Detail</i>
+                            </button>
+
+
+                        <!--Card footer-->
+                      </div>
+                      <!--/.Card content-->
+                    </div>
+                    <!--/.Card-->
+                  </div>
+                </div>
+                </div>
+              </div>
+
+            </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+

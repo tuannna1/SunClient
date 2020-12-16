@@ -14,7 +14,10 @@ router-outlet ~ * {
   height: 100%;
   width: 100%;
 }
-
+html,body{
+  font-family: 'Josefin Sans', sans-serif;
+  font-size: 15px;
+}
 
 
 .page-header{
@@ -56,16 +59,31 @@ router-outlet ~ * {
 }
 
 
+.nav-tabs .nav-link.active {
+  font-weight:bold;
+  background-color: transparent;
+  border-bottom:3px solid #8a8a8a;
+  border-right: none;
+  border-left: none;
+  border-top: none;
+}
+
+#pop1-tab, #pop2-tab, #pop3-tab{
+  color: #ff7315;
+  font-family: inherit;
+  font-size: x-large;
+}
 
 
-/*.view img {*/
-/*  padding: 0px;*/
-/*  transform: scale(1);*/
-/*  transition: all 0.5s;*/
-/*}*/
-/*.view img:hover {*/
-/*  transform: scale(1.1);*/
-/*}*/
+
+.viewimg img {
+  padding: 0px;
+  transform: scale(1);
+  transition: all 0.5s;
+}
+.viewimg img:hover {
+  transform: scale(1.1);
+}
 
 /*-- easy responsive tabs style--*/
 
@@ -295,13 +313,13 @@ color: #ff7315;
 .signup{
   background-image:url('./assets/images/banner.jpg');
   width: 100%;
-  height: 680px;
+  height: 730px;
 }
 
 .login{
   background-image:url('./assets/images/banner.jpg');
   width: 100%;
-  height: 680px;
+  height: 730px;
 }
 
 

@@ -39,10 +39,15 @@
               <label id="subtotal">{{count * productInfo?.productPrice | currency}}</label>
             </p>
           </div>
-          <button type="submit" [disabled]="!form.form.valid" *ngIf="productInfo?.productStatus == 0; else offBlock"
-                  class="btn btn-primary btn-lg"
-          >{{ this.translate.data["Add to Cart"] | translate }}
+          <div *ngIf="productInfo?.productStock >1">
+            <button type="button" class="btn btn-primary btn-sm px-3 mr-1 mb-2" *ngIf="productInfo.productStatus == 0; else offBlock" (click)="addToCart(productInfo)">
+              <i class="fa fa-shopping-cart pr-2"></i>{{ this.translate.data["Add to Cart"] | translate }}
+            </button>
+          </div><div *ngIf="productInfo?.productStock <= 1">
+          <button type="button" disabled class="btn btn-dark btn-sm px-3 mr-1 mb-2" *ngIf="productInfo.productStatus == 0; else offBlock" (click)="addToCart(productInfo)">
+            <i class="fa fa-shopping-cart pr-2"></i>{{ this.translate.data["Add to Cart"] | translate }}
           </button>
+        </div>
           <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">{{ this.translate.data["Unavailable"] | translate }}</a></ng-template>
         </form>
 

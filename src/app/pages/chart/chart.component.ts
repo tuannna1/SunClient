@@ -21,7 +21,7 @@ export class ChartComponent implements OnInit, OnDestroy  {
     responsive: true,
   };
   public pieChartLabels: Label[] = [['Finish'], ['Pending'], 'Cancel'];
-  public pieChartData: SingleDataSet = [300, 500, 100];
+  public pieChartData: SingleDataSet = [100, 500, 100];
   public pieChartType: ChartType = 'pie';
   public pieChartLegend = true;
   public pieChartPlugins = [];
@@ -59,5 +59,49 @@ export class ChartComponent implements OnInit, OnDestroy  {
   }
   ngOnDestroy(): void {
     this.querySub.unsubscribe();
+  }
+  pageoder1() {
+    let nextPage = 1;
+    let size = 10;
+
+
+    if (this.route.snapshot.queryParamMap.get('page1')) {
+      nextPage = +this.route.snapshot.queryParamMap.get('page1');
+
+      size = +this.route.snapshot.queryParamMap.get('size');
+
+    }
+    this.orderService.getPageoder1(nextPage, size).subscribe(page => this.page = page, _ => {
+      console.log("Get Orde Failed")
+    });
+  }
+
+  pageoder2() {
+    let nextPage = 1;
+    let size = 10;
+
+    if (this.route.snapshot.queryParamMap.get('page2')) {
+      nextPage = +this.route.snapshot.queryParamMap.get('page2');
+
+      size = +this.route.snapshot.queryParamMap.get('size');
+
+    }
+    this.orderService.getPageoder2(nextPage, size).subscribe(page => this.page = page, _ => {
+      console.log("Get Orde Failed")
+    });
+  }
+  pageoder3() {
+    let nextPage = 1;
+    let size = 10;
+
+    if (this.route.snapshot.queryParamMap.get('page3')) {
+      nextPage = +this.route.snapshot.queryParamMap.get('page3');
+
+      size = +this.route.snapshot.queryParamMap.get('size');
+
+    }
+    this.orderService.getPageoder3(nextPage, size).subscribe(page => this.page = page, _ => {
+      console.log("Get Orde Failed")
+    });
   }
 }

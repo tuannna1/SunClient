@@ -61,6 +61,78 @@
   </div>
 
 
+<!--<div class="container">-->
+<!--  <div class="row">-->
+<!--    <div class="col-md-12">-->
+<!--      <h3>Default Tab</h3>-->
+
+<!--      <div class="tabbable-panel">-->
+<!--        <div class="tabbable-line">-->
+<!--          <ul class="nav nav-tabs ">-->
+<!--            <li class="active">-->
+<!--              <a href="#tab_default_1" data-toggle="tab">-->
+<!--                Tab 1 </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <a href="#tab_default_2" data-toggle="tab">-->
+<!--                Tab 2 </a>-->
+<!--            </li>-->
+<!--            <li>-->
+<!--              <a href="#tab_default_3" data-toggle="tab">-->
+<!--                Tab 3 </a>-->
+<!--            </li>-->
+<!--          </ul>-->
+<!--          <div class="tab-content">-->
+<!--            <div class="tab-pane active" id="tab_default_1">-->
+<!--              <app-best-product></app-best-product>-->
+<!--            </div>-->
+<!--            <div class="tab-pane" id="tab_default_2">-->
+<!--              <app-new-product></app-new-product>-->
+<!--            </div>-->
+
+<!--          </div>-->
+<!--        </div>-->
+<!--      </div>-->
+
+<!--    </div>-->
+<!--  </div>-->
+<!--</div>-->
+<br/><br/><br/>
+
+<section class=" ">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center ">
+        <nav class="nav-justified ">
+          <div class="nav nav-tabs " id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true">News</a>
+            <a class="nav-item nav-link" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false">Bestsellers</a>
+            <a class="nav-item nav-link" id="pop3-tab" data-toggle="tab" href="#pop3" role="tab" aria-controls="pop3" aria-selected="false">Suggestions</a>
+
+          </div>
+        </nav>
+        <div class="tab-content" id="nav-tabContent">
+          <div class="tab-pane fade show active" id="pop1" role="tabpanel" aria-labelledby="pop1-tab">
+            <div class="pt-3"></div>
+            <app-best-product></app-best-product>
+          </div>
+          <div class="tab-pane fade" id="pop2" role="tabpanel" aria-labelledby="pop2-tab">
+            <div class="pt-3"></div>
+            <app-new-product></app-new-product>
+
+          </div>
+          <div class="tab-pane fade" id="pop3" role="tabpanel" aria-labelledby="pop3-tab">
+            <div class="pt-3"></div>
+            <app-sale-product></app-sale-product>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
 <div class="about lobster-font-family">
   <div class="container">
     <h2 class="text-center text-capitalize" style="color: #ff7315; font-family: 'Times New Roman'">{{ this.translate.data["SLIDE1"] | translate }}</h2>
@@ -123,37 +195,6 @@
   <div class="st-rec"></div>
   <div class="rd-rec"></div>
 </div>
-<h2>Best Product</h2>
-<owl-carousel-o
-  [options]="customOptions"
->
-  <ng-template carouselSlide >
-    <div class="slide">
-      <img src="https://thumb.danhsachcuahang.com/image/2019/08/top-4-shop-ban-ao-so-mi-cho-nam-dep-tren-duong-au-co-thumb-557-1566442458-5d5e03da06f91.jpg">
-    </div>
-  </ng-template>
-  <ng-template carouselSlide>
-    <div class="slide">
-      <img src="https://thumb.danhsachcuahang.com/image/2019/08/top-4-shop-ban-ao-so-mi-cho-nam-dep-tren-duong-au-co-thumb-557-1566442458-5d5e03da06f91.jpg">
-    </div>
-  </ng-template>
-  <ng-template carouselSlide>
-    <div class="slide">
-      <img src="https://thumb.danhsachcuahang.com/image/2019/08/top-4-shop-ban-ao-so-mi-cho-nam-dep-tren-duong-au-co-thumb-557-1566442458-5d5e03da06f91.jpg">
-    </div>
-  </ng-template>
-  <ng-template carouselSlide>
-    <div class="slide">
-      <img src="https://thumb.danhsachcuahang.com/image/2019/08/top-4-shop-ban-ao-so-mi-cho-nam-dep-tren-duong-au-co-thumb-557-1566442458-5d5e03da06f91.jpg">
-    </div>
-  </ng-template>
-  <ng-template carouselSlide>
-    <div class="slide">
-      <img src="https://thumb.danhsachcuahang.com/image/2019/08/top-4-shop-ban-ao-so-mi-cho-nam-dep-tren-duong-au-co-thumb-557-1566442458-5d5e03da06f91.jpg">
-    </div>
-  </ng-template>
-</owl-carousel-o>
-<!--<div class="poster">-->
 
 <!--</div>-->
 <br/><br/><br/><br/>

@@ -2,11 +2,12 @@ import {Component, OnDestroy, OnInit} from '@angular/core';
 import {UserService} from "../../services/user.service";
 import {Subscription} from "rxjs";
 import {JwtResponse} from "../../response/JwtResponse";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from '@angular/router';
 import {Role} from "../../enum/Role";
 import {TranslateService} from '../../services/translate.service';
 import {OwlOptions} from 'ngx-owl-carousel-o';
 import {ProductInfo} from '../../models/productInfo';
+import {ProductService} from '../../services/product.service';
 
 @Component({
     selector: 'app-slide',
@@ -55,8 +56,15 @@ export class SlideComponent implements OnInit, OnDestroy {
     lazyLoad: true,
   }
 
+  productInfo: any;
+  page: any;
+  title: string;
+  private paramSub: Subscription;
+  private querySub: Subscription;
     constructor(private userService: UserService,
                 private router: Router,
+                private route: ActivatedRoute,
+                private productService: ProductService,
                 public translate: TranslateService,
     ) {
 
@@ -73,11 +81,44 @@ export class SlideComponent implements OnInit, OnDestroy {
                 this.root = '/seller';
             }
         });
+      this.querySub = this.route.queryParams.subscribe(() => {
+        this.update();
+      });
+      this.paramSub = this.route.params.subscribe(() => {
+        this.update();
+      });
     }
+  update() {
+    if (this.route.snapshot.queryParamMap.get('page')) {
+      const currentPage = +this.route.snapshot.queryParamMap.get('page');
+      const size = +this.route.snapshot.queryParamMap.get('size');
+      this.getProds(currentPage, size);
+    } else {
+      this.getProds();
+    }
+  }
+  getProds(page: number = 1, size: number = 1) {
+    if (this.route.snapshot.url.length == 1) {
+      this.productService.getAllInPage(+page, +size)
+        .subscribe(page => {
+          this.page = page;
+          this.title = 'Get Whatever You Want!';
+        });
+    } else { //  /category/:id
+      const type = this.route.snapshot.url[1].path;
+      this.productService.getCategoryInPage(+type, page, size)
+        .subscribe(categoryPage => {
+          this.title = categoryPage.category;
+          this.page = categoryPage.page;
+        });
+    }
+  }
 
     ngOnDestroy(): void {
         this.currentUserSubscription.unsubscribe();
         // this.name$.unsubscribe();
+      this.querySub.unsubscribe();
+      this.paramSub.unsubscribe();
     }
 
     logout() {

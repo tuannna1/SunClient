@@ -12,6 +12,10 @@ export class OrderService {
 
     private orderUrl = `${apiUrl}/order`;
     private orderUrl1 = `${apiUrl}/order/chart`;
+  private orderUrlFinish= `${apiUrl}/order/status1`;
+  private orderUrlApproved= `${apiUrl}/order/status3`;
+  private orderUrlCancel= `${apiUrl}/order/status2`;
+
     constructor(private http: HttpClient) {
     }
 
@@ -19,8 +23,18 @@ export class OrderService {
         return this.http.get(`${this.orderUrl}?page=${page}&size=${size}`).pipe();
     }
 
+  getPageoder1(page = 1, size = 10): Observable<any> {
+    return this.http.get(`${this.orderUrlFinish}?page=${page}&size=${size}`).pipe();
+  }
+    getPageoder2(page = 1, size = 10): Observable<any> {
+      return this.http.get(`${this.orderUrlCancel}?page=${page}&size=${size}`).pipe();
+    }
+  getPageoder3(page = 1, size = 10): Observable<any> {
+    return this.http.get(`${this.orderUrlApproved}?page=${page}&size=${size}`).pipe();
+  }
+
   getPage1(page = 1, size = 10): Observable<any> {
-    return this.http.get(`${this.orderUrl}?page=${page}&size=${size}`).pipe();
+    return this.http.get(`${this.orderUrl1}?page=${page}&size=${size}`).pipe();
   }
 
     show(id): Observable<Order> {

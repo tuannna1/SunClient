@@ -12,11 +12,11 @@ import {ProductInfo} from '../../models/productInfo';
 import {ToastrService} from 'ngx-toastr';
 
 @Component({
-  selector: 'app-card',
-  templateUrl: './card.component.html',
-  styleUrls: ['./card.component.css']
+  selector: 'app-best-product',
+  templateUrl: './best-product.component.html',
+  styleUrls: ['./best-product.component.css']
 })
-export class CardComponent implements OnInit, OnDestroy {
+export class BestProductComponent implements OnInit, OnDestroy {
   title: string;
   page: any;
   private paramSub: Subscription;
@@ -42,12 +42,11 @@ export class CardComponent implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.querySub = this.route.queryParams.subscribe(() => {
-      this.update()
+      this.update();
     });
     this.paramSub = this.route.params.subscribe(() => {
-this.update()
+      this.update();
     });
-
   }
 
   ngOnDestroy(): void {
@@ -64,62 +63,7 @@ this.update()
       this.getProds();
     }
   }
-  under25() {
-    let nextPage = 1;
-    let size = 12;
-    if (this.route.snapshot.queryParamMap.get('page')) {
-      nextPage = +this.route.snapshot.queryParamMap.get('page');
-      size = +this.route.snapshot.queryParamMap.get('size');
-    }
-    this.productService.getunder25(nextPage, size).subscribe(page => this.page = page, _ => {
-      console.log("Get Orde Failed")
-    });
-  }
-  from25to50() {
-    let nextPage = 1;
-    let size = 12;
-    if (this.route.snapshot.queryParamMap.get('page')) {
-      nextPage = +this.route.snapshot.queryParamMap.get('page');
-      size = +this.route.snapshot.queryParamMap.get('size');
-    }
-    this.productService.getfrom25to50(nextPage, size).subscribe(page => this.page = page, _ => {
-      console.log("Get Orde Failed")
-    });
-  }
-  from50to100() {
-    let nextPage = 1;
-    let size = 12;
-    if (this.route.snapshot.queryParamMap.get('page')) {
-      nextPage = +this.route.snapshot.queryParamMap.get('page');
-      size = +this.route.snapshot.queryParamMap.get('size');
-    }
-    this.productService.getfrom50to100(nextPage, size).subscribe(page => this.page = page, _ => {
-      console.log("Get Orde Failed")
-    });
-  }
-  from100to200() {
-    let nextPage = 1;
-    let size = 12;
-    if (this.route.snapshot.queryParamMap.get('page')) {
-      nextPage = +this.route.snapshot.queryParamMap.get('page');
-      size = +this.route.snapshot.queryParamMap.get('size');
-    }
-    this.productService.getfrom100to200(nextPage, size).subscribe(page => this.page = page, _ => {
-      console.log("Get Orde Failed")
-    });
-  }
-  above200() {
-    let nextPage = 1;
-    let size = 12;
-    if (this.route.snapshot.queryParamMap.get('page')) {
-      nextPage = +this.route.snapshot.queryParamMap.get('page');
-      size = +this.route.snapshot.queryParamMap.get('size');
-    }
-    this.productService.getabove200(nextPage, size).subscribe(page => this.page = page, _ => {
-      console.log("Get Orde Failed")
-    });
-  }
-  getProds(page: number = 1, size: number = 12) {
+  getProds(page: number = 7, size: number = 6) {
     if (this.route.snapshot.url.length == 1) {
       this.productService.getAllInPage(+page, +size)
         .subscribe(page => {

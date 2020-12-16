@@ -17,9 +17,11 @@ import {Role} from "../../enum/Role";
 export class OrderComponent implements OnInit, OnDestroy {
 
     page: any;
+
     OrderStatus = OrderStatus;
     currentUser: JwtResponse;
     Role = Role;
+    lol =false;
     constructor(private httpClient: HttpClient,
                 private orderService: OrderService,
                 private userService: UserService,
@@ -31,9 +33,9 @@ export class OrderComponent implements OnInit, OnDestroy {
 
     ngOnInit() {
         this.currentUser = this.userService.currentUserValue;
-        this.querySub = this.route.queryParams.subscribe(() => {
+         this.querySub = this.route.queryParams.subscribe(() => {
             this.update();
-        });
+         });
 
     }
 
@@ -42,12 +44,59 @@ export class OrderComponent implements OnInit, OnDestroy {
         let size = 10;
         if (this.route.snapshot.queryParamMap.get('page')) {
             nextPage = +this.route.snapshot.queryParamMap.get('page');
+
             size = +this.route.snapshot.queryParamMap.get('size');
+
         }
         this.orderService.getPage(nextPage, size).subscribe(page => this.page = page, _ => {
             console.log("Get Orde Failed")
         });
     }
+
+  pageoder1() {
+    let nextPage = 1;
+    let size = 10;
+
+
+    if (this.route.snapshot.queryParamMap.get('page1')) {
+      nextPage = +this.route.snapshot.queryParamMap.get('page1');
+
+      size = +this.route.snapshot.queryParamMap.get('size');
+
+    }
+    this.orderService.getPageoder1(nextPage, size).subscribe(page => this.page = page, _ => {
+      console.log("Get Orde Failed")
+    });
+  }
+
+  pageoder2() {
+    let nextPage = 1;
+    let size = 10;
+
+    if (this.route.snapshot.queryParamMap.get('page2')) {
+      nextPage = +this.route.snapshot.queryParamMap.get('page2');
+
+      size = +this.route.snapshot.queryParamMap.get('size');
+
+    }
+    this.orderService.getPageoder2(nextPage, size).subscribe(page => this.page = page, _ => {
+      console.log("Get Orde Failed")
+    });
+  }
+  pageoder3() {
+    let nextPage = 1;
+    let size = 10;
+
+    if (this.route.snapshot.queryParamMap.get('page3')) {
+      nextPage = +this.route.snapshot.queryParamMap.get('page3');
+
+      size = +this.route.snapshot.queryParamMap.get('size');
+
+    }
+    this.orderService.getPageoder3(nextPage, size).subscribe(page => this.page = page, _ => {
+      console.log("Get Orde Failed")
+    });
+  }
 
 
     cancel(order: Order) {
@@ -76,5 +125,6 @@ export class OrderComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
         this.querySub.unsubscribe();
     }
+
 
 }

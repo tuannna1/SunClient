@@ -46,6 +46,10 @@ import {ChartsModule} from 'ng2-charts';
 import {FavoriteComponent} from './pages/favorite/favorite.component';
 import {ImageZoomModule} from 'angular2-image-zoom';
 import {CarouselModule} from 'ngx-owl-carousel-o';
+import {BestProductComponent} from './pages/best-product/best-product.component';
+import {NewProductComponent} from './pages/new-product/new-product.component';
+import {SaleProductComponent} from './pages/sale-product/sale-product.component';
+
 
 
 
@@ -87,7 +91,9 @@ export function setupTranslateFactory(service: TranslateService) {
       TranslatePipe,
       ChartComponent,
       FavoriteComponent,
-
+      BestProductComponent,
+      NewProductComponent,
+      SaleProductComponent
     ],
     imports: [
         BrowserModule,

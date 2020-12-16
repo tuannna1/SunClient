@@ -6,7 +6,6 @@
   <div class="row">
     <div class="col-sm">
 
-
       <div class="row" >
         <div class="col-md-3" style="border-right: 1px solid #dddddd;" >
           <!-- Section: Filters -->
@@ -28,28 +27,28 @@
             <section class="mb-4" style="margin: 0 20px" >
 
              <div class="form-check pl-0 mb-3">
-                <input [(ngModel)]="productStatus" type="radio" class="form-check-input" id="getAllproduct" value="getAllproduct" name="materialExampleRadios">
+                <input (click)="update()" type="radio" class="form-check-input" id="getAllproduct" value="getAllproduct" name="materialExampleRadios">
                 <label class="form-check-label small text-uppercase card-link-secondary" for="getAllproduct">Xem tất cả</label>
               </div>
 
               <div class="form-check pl-0 mb-3">
-                <input [(ngModel)]="productStatus" type="radio" class="form-check-input" id="under25" value="under25" name="materialExampleRadios">
+                <input (click)="under25()" type="radio" class="form-check-input" id="under25" value="under25" name="materialExampleRadios">
                 <label class="form-check-label small text-uppercase card-link-secondary" for="under25">{{ this.translate.data["CATEGORY8"] | translate }}</label>
               </div>
               <div class="form-check pl-0 mb-3">
-                <input [(ngModel)]="productStatus" type="radio" class="form-check-input" id="2550" value="2550" name="materialExampleRadios">
+                <input (click)="from25to50()" type="radio" class="form-check-input" id="2550" value="2550" name="materialExampleRadios">
                 <label class="form-check-label small text-uppercase card-link-secondary" for="2550">{{ this.translate.data["CATEGORY9"] | translate }}</label>
               </div>
               <div class="form-check pl-0 mb-3">
-                <input [(ngModel)]="productStatus" type="radio" class="form-check-input" id="50100" value="50100" name="materialExampleRadios">
+                <input (click)="from50to100()" type="radio" class="form-check-input" id="50100" value="50100" name="materialExampleRadios">
                 <label class="form-check-label small text-uppercase card-link-secondary" for="50100">{{ this.translate.data["CATEGORY10"] | translate }}</label>
               </div>
               <div class="form-check pl-0 mb-3">
-                <input [(ngModel)]="productStatus" type="radio" class="form-check-input" id="100200" value="100200" name="materialExampleRadios">
+                <input (click)="from100to200()" type="radio" class="form-check-input" id="100200" value="100200" name="materialExampleRadios">
                 <label class="form-check-label small text-uppercase card-link-secondary" for="100200">{{ this.translate.data["CATEGORY11"] | translate }}</label>
               </div>
               <div class="form-check pl-0 mb-3">
-                <input [(ngModel)]="productStatus" type="radio" class="form-check-input" value="200above" id="200above" name="materialExampleRadios">
+                <input (click)="above200()" type="radio" class="form-check-input" value="200above" id="200above" name="materialExampleRadios">
                 <label class="form-check-label small text-uppercase card-link-secondary" for="200above">{{ this.translate.data["CATEGORY12"] | translate }}</label>
               </div>
 
@@ -65,15 +64,15 @@
 
             <div class="row" *ngIf="!loading">
               <!-- List of Products -->
-              <div class="col-sm-3 mb-2" *ngFor="let productInfo of page?.content | filter:searchText ">
+              <div class="col-sm-3 mb-2" *ngFor="let productInfo of page?.content | filter:searchText  ">
                <div *ngIf="ShowProduct(productInfo.productPrice)">
                 <div class="item">
                   <div class="mb-r">
                     <!--Card-->
                     <div class="card card-cascade wider" >
                       <!--Card image-->
-                      <a  style="width:219px; height:220px" >
-                        <div class="view zoom overlay z-depth-2 rounded">
+                      <a  style="width:219px; height:220px"  routerLink="/product/{{productInfo.productId}}">
+                        <div class="viewimg zoom overlay z-depth-2 rounded">
                           <img class="img-fluid w-100"
                                src="{{productInfo.productIcon}}"
                                alt="Sample" >
@@ -83,18 +82,24 @@
 
                       <!--Card content-->
                       <div class="card-body text-center no-padding" style="color: #ff7315">
-                        <h5>
+                        <h6 style=" height:40px; font-size: 17px">
                           <strong>
-                            <a [routerLink]="['/category', productInfo.productId]">{{productInfo.productName}}</a>
+                            <a routerLink="/product/{{productInfo.productId}}">{{productInfo.productName}}</a>
                           </strong>
-                        </h5>
+                        </h6>
                         <h6 class="mb-3"><strong><span>{{productInfo.productPrice | currency}}</span></strong></h6>
                         <!--Card footer-->
 
-
+                            <div *ngIf="productInfo.productStock >1">
                             <button type="button" class="btn btn-primary btn-sm px-3 mr-1 mb-2" *ngIf="productInfo.productStatus == 0; else offBlock" (click)="addToCart(productInfo)">
                               <i class="fa fa-shopping-cart pr-2"></i>Add to card
                             </button>
+                            </div>
+                        <div *ngIf="productInfo.productStock <= 1">
+                        <button type="button" disabled class="btn btn-dark btn-sm px-3 mr-1 mb-2" *ngIf="productInfo.productStatus == 0; else offBlock" (click)="addToCart(productInfo)">
+                          <i class="fa fa-shopping-cart pr-2"></i>Add to card
+                         </button>
+                      </div>
                             <ng-template #offBlock><button  class="btn btn-dark btn-sm px-3 mr-1 mb-2">Unavailable</button></ng-template>
                             <button type="button" class="btn btn-secondary btn-sm px-3 mr-1 mb-2" routerLink="/product/{{productInfo.productId}}" >
                               <i class="fa fa-eye"></i>

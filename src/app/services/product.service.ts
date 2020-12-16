@@ -15,6 +15,11 @@ export class ProductService {
     private productUrl = `${apiUrl}/product`;
     private categoryUrl = `${apiUrl}/category`;
   private baseurl = 'http://localhost:8080/api/delete/product';
+  private productUrl1 = `${apiUrl}/product/under25`;
+  private productUrl2 = `${apiUrl}/product/from25to50`;
+  private productUrl3 = `${apiUrl}/product/from50to100`;
+  private productUrl4 = `${apiUrl}/product/from100to200`;
+  private productUrl5 = `${apiUrl}/product/above200`;
 
     constructor(private http: HttpClient,
                 private toastr: ToastrService,) {
@@ -39,6 +44,21 @@ export class ProductService {
             // tap(data => console.log(data))
         );
     }
+  getunder25(page = 1, size = 10): Observable<any> {
+    return this.http.get(`${this.productUrl1}?page=${page}&size=${size}`).pipe();
+  }
+  getfrom25to50(page = 1, size = 10): Observable<any> {
+    return this.http.get(`${this.productUrl2}?page=${page}&size=${size}`).pipe();
+  }
+  getfrom50to100(page = 1, size = 10): Observable<any> {
+    return this.http.get(`${this.productUrl3}?page=${page}&size=${size}`).pipe();
+  }
+  getfrom100to200(page = 1, size = 10): Observable<any> {
+    return this.http.get(`${this.productUrl4}?page=${page}&size=${size}`).pipe();
+  }
+  getabove200(page = 1, size = 10): Observable<any> {
+    return this.http.get(`${this.productUrl5}?page=${page}&size=${size}`).pipe();
+  }
 
     getDetail(id: String): Observable<ProductInfo> {
         const url = `${this.productUrl}/${id}`;
