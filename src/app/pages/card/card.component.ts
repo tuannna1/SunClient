@@ -10,6 +10,7 @@ import {CookieService} from 'ngx-cookie-service';
 import {UserService} from '../../services/user.service';
 import {ProductInfo} from '../../models/productInfo';
 import {ToastrService} from 'ngx-toastr';
+import {ProductStatus} from '../../enum/ProductStatus';
 
 @Component({
   selector: 'app-card',
@@ -22,12 +23,13 @@ export class CardComponent implements OnInit, OnDestroy {
   private paramSub: Subscription;
   private querySub: Subscription;
   loading = false;
-  selectedBrand="All";
   status ="all";
-  productsList: any;
   productStatus = "getAllproduct";
+  productId = "getAllproduct";
   searchText
   productInfo: any;
+  count: number;
+  ProductStatus = ProductStatus;
 
   constructor(private productService: ProductService,
               private route: ActivatedRoute,
@@ -169,6 +171,14 @@ ShowProduct(productPrice: number) {
     return getAll || getunder25 || get25To50 || get50To100 || get100To200 || get200above ;
   }
 
-
+  validateCount() {
+    console.log('Validate');
+    const max = this.productInfo.productStock;
+    if (this.count > max) {
+      this.count = max;
+    } else if (this.count < 1) {
+      this.count = 0;
+    }
+  }
 
 }

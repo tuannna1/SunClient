@@ -10,7 +10,9 @@
       </div>
         <div class="details col-md-6" >
       <div class="card-body"  >
-        <h4 class="card-title "  style="color: #ff7315">{{productInfo?.productName}}</h4>
+        <h4 class="card-title "  style="color: #ff7315">{{productInfo?.productName}}
+          <a style="color: #999999; font-size: 15px">(Id: {{productInfo?.productId}})</a>
+        </h4>
         <form name="form" #form='ngForm' (ngSubmit)="productInfo?.productStatus == 0 && addToCart()">
           <div class="text-left">
             <input hidden name="productId" [value]=productInfo?.productId>
@@ -34,18 +36,27 @@
             </label>
 
             <p class="card-test"><strong>{{ this.translate.data["Description"] | translate }}: </strong>{{productInfo?.productDescription}}</p>
-            <p class="card-test"><strong>{{ this.translate.data["Status"] | translate }}: </strong>{{ProductStatus[productInfo?.productStatus]}}</p>
+            <p class="card-test"><strong>{{ this.translate.data["Status"] | translate }}: </strong>
+
+              <a *ngIf="productInfo?.productStock >0">
+              Available
+          </a>
+          <a *ngIf="productInfo?.productStock <= 0">
+              Unavailable
+          </a>
+            </p>
+
             <p class="card-text"><strong>{{ this.translate.data["Subtotal"] | translate }}: </strong>
               <label id="subtotal">{{count * productInfo?.productPrice | currency}}</label>
             </p>
           </div>
-          <div *ngIf="productInfo?.productStock >1">
+          <div *ngIf="productInfo?.productStock >0">
             <button type="button" class="btn btn-primary btn-sm px-3 mr-1 mb-2" *ngIf="productInfo.productStatus == 0; else offBlock" (click)="addToCart(productInfo)">
               <i class="fa fa-shopping-cart pr-2"></i>{{ this.translate.data["Add to Cart"] | translate }}
             </button>
-          </div><div *ngIf="productInfo?.productStock <= 1">
+          </div><div *ngIf="productInfo?.productStock <= 0">
           <button type="button" disabled class="btn btn-dark btn-sm px-3 mr-1 mb-2" *ngIf="productInfo.productStatus == 0; else offBlock" (click)="addToCart(productInfo)">
-            <i class="fa fa-shopping-cart pr-2"></i>{{ this.translate.data["Add to Cart"] | translate }}
+           {{ this.translate.data["Unavailable"] | translate }}
           </button>
         </div>
           <ng-template #offBlock><a class="btn btn-secondary btn-lg disabled">{{ this.translate.data["Unavailable"] | translate }}</a></ng-template>

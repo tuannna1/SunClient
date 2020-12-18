@@ -43,7 +43,6 @@ import {ToastrModule} from 'ngx-toastr';
 import {NgxSpinnerModule} from 'ngx-spinner';
 import {ChartComponent} from './pages/chart/chart.component';
 import {ChartsModule} from 'ng2-charts';
-import {FavoriteComponent} from './pages/favorite/favorite.component';
 import {ImageZoomModule} from 'angular2-image-zoom';
 import {CarouselModule} from 'ngx-owl-carousel-o';
 import {BestProductComponent} from './pages/best-product/best-product.component';
@@ -90,7 +89,6 @@ export function setupTranslateFactory(service: TranslateService) {
       FooterComponent,
       TranslatePipe,
       ChartComponent,
-      FavoriteComponent,
       BestProductComponent,
       NewProductComponent,
       SaleProductComponent

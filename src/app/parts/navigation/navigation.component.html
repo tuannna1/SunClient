@@ -165,10 +165,6 @@
           class="nav-item nav-link " routerLink="/cart">
           <i class="fas fa-shopping-cart"></i>
         </a></li>
-        <li ><a *ngIf="!currentUser || currentUser.role == Role.Customer"
-                class="nav-item nav-link " routerLink="/favorite">
-          <i class="fas fa-heart"></i>
-        </a></li>
 
         <ng-container *ngIf="currentUser; else noUser">
           <li><a *ngIf="currentUser.role != Role.Customer" class="nav-item nav-link " routerLink="/categoryList">

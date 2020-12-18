@@ -71,12 +71,12 @@
                     <!--Card-->
                     <div class="card card-cascade wider" >
                       <!--Card image-->
-                      <a  style="width:219px; height:220px"  routerLink="/product/{{productInfo.productId}}">
+                      <a  style="width:219px; height:220px" data-toggle="modal" routerLink="/product/{{productInfo.productId}}">
                         <div class="viewimg zoom overlay z-depth-2 rounded">
                           <img class="img-fluid w-100"
                                src="{{productInfo.productIcon}}"
                                alt="Sample" >
-                        </div>
+                           </div>
                       </a>
                       <!--/.Card image-->
 
@@ -90,14 +90,14 @@
                         <h6 class="mb-3"><strong><span>{{productInfo.productPrice | currency}}</span></strong></h6>
                         <!--Card footer-->
 
-                            <div *ngIf="productInfo.productStock >1">
+                            <div *ngIf="productInfo.productStock >0">
                             <button type="button" class="btn btn-primary btn-sm px-3 mr-1 mb-2" *ngIf="productInfo.productStatus == 0; else offBlock" (click)="addToCart(productInfo)">
                               <i class="fa fa-shopping-cart pr-2"></i>Add to card
                             </button>
                             </div>
-                        <div *ngIf="productInfo.productStock <= 1">
+                        <div *ngIf="productInfo.productStock <= 0">
                         <button type="button" disabled class="btn btn-dark btn-sm px-3 mr-1 mb-2" *ngIf="productInfo.productStatus == 0; else offBlock" (click)="addToCart(productInfo)">
-                          <i class="fa fa-shopping-cart pr-2"></i>Add to card
+                          Unavailable
                          </button>
                       </div>
                             <ng-template #offBlock><button  class="btn btn-dark btn-sm px-3 mr-1 mb-2">Unavailable</button></ng-template>
