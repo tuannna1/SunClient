@@ -5,7 +5,7 @@
 export const environment = {
   production: false
 };
-export const apiUrl = '//sunbackend.herokuapp.com/api';
+export const apiUrl = '//sunrisebackend2020.herokuapp.com/api';
 
 /*
  * For easier debugging in development mode, you can import the following file

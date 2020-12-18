@@ -1,33 +1,68 @@
 <br/><br/><br/><br/><br/>
 <h1 align="center" class="display-4 ">Chart</h1>
-<div style="display: block;height: 50%; width: 50%;">
-  <canvas baseChart
-          [data]="pieChartData"
-          [labels]="pieChartLabels"
-          [chartType]="pieChartType"
-          [options]="pieChartOptions"
-          [plugins]="pieChartPlugins"
-          [legend]="pieChartLegend">
-  </canvas>
+<section>
+  <div >
+<div style="display: block;height: 50%; width: 50%;float: right">
+  <div *ngFor="let sum0 of sum0">
+    <div *ngFor="let sum1 of sum1">
+    <div *ngFor="let sum2 of sum2">
+    <div *ngFor="let sum3 of sum3">
+    <canvas baseChart
+            [data]="[sum1.TONG1,sum0.TONG0,sum3.TONG3,sum2.TONG2]"
+            [labels]="pieChartLabels"
+            [chartType]="pieChartType"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+    </canvas>
+  </div></div></div></div>
+  <h2 style="text-align: center">Thống kê doanh số bán hàng</h2>
+  <h3 style="text-align: center" *ngFor="let sum of sum">Tổng doanh thu: {{sum.TONG|currency}}  </h3>
 </div>
+  </div>
+  <div >
+    <div style="display: block;height: 50%; width: 50%;">
+      <div *ngFor="let count0 of count0">
+        <div *ngFor="let count1 of count1">
+          <div *ngFor="let count2 of count2">
+            <div *ngFor="let count3 of count3">
+              <canvas baseChart
+                      [data]="[count1.SOLUONG1,count0.SOLUONG0,count3.SOLUONG3,count2.SOLUONG2]"
+                      [labels]="pieChartLabels"
+                      [chartType]="pieChartType"
+                      [options]="pieChartOptions"
+                      [plugins]="pieChartPlugins"
+                      [legend]="pieChartLegend">
+              </canvas>
+            </div></div></div></div>
+      <h2 style="text-align: center">Thống kê số lượng đơn hàng</h2>
+      <h3 style="text-align: center" *ngFor="let count of count">Tổng số đơn hàng: {{count.SOLUONG}} Đơn </h3>
+    </div>
 
+
+  </div>
+</section>
 <section class="mb-4" style="margin: 0 20px" >
 
   <div class="form-check pr-1 mb-3">
-    <input type="radio" (click)="update()" class="form-check-input"  name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary" >Tất cả đơn hàng</label>
+    <input type="radio" (click)="update()" class="form-check-input" id="all"  name="materialExampleRadios">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="all" >Tất cả đơn hàng</label>
   </div>
-  <div class="form-check pl-0 mb-3">
-    <input  type="radio" (click)="pageoder1()" class="form-check-input"  name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary" >Đơn hàng hoàn tất</label>
+  <div class="form-check pr-1 mb-3">
+    <input  type="radio" (click)="pageoder1()" class="form-check-input"  id="1" name="materialExampleRadios">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="1" >Đơn hàng hoàn tất</label>
   </div>
-  <div class="form-check pl-0 mb-3" >
-    <input  type="radio" (click)="pageoder2()" class="form-check-input" name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary"  >Đơn hàng hủy bỏ</label>
+  <div class="form-check pr-1 mb-3" >
+    <input  type="radio" (click)="pageoder2()" class="form-check-input" id="2" name="materialExampleRadios">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="2"  >Đơn hàng hủy bỏ</label>
   </div>
-  <div class="form-check pl-0 mb-3" >
-    <input type="radio" (click)="pageoder3()" class="form-check-input"  name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary" >Đơn hàng được xác nhận</label>
+  <div class="form-check pr-1 mb-3" >
+    <input type="radio" (click)="pageoder3()" class="form-check-input" id="3"  name="materialExampleRadios">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="3" >Đơn hàng được xác nhận</label>
+  </div>
+  <div class="form-check pr-1 mb-3" >
+    <input type="radio" (click)="pageoder0()" class="form-check-input" id="0" name="materialExampleRadios">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="0" >Đơn hàng mới</label>
   </div>
 
 </section>

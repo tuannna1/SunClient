@@ -5,22 +5,25 @@
 <section class="mb-4" style="margin: 0 20px" >
 
   <div class="form-check pr-1 mb-3">
-    <input type="radio" (click)="update()" class="form-check-input"  name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary" >Tất cả đơn hàng</label>
+    <input type="radio" (click)="update()" class="form-check-input" id="all"  name="materialExampleRadios">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="all" >Tất cả đơn hàng</label>
   </div>
-  <div class="form-check pl-0 mb-3">
-    <input  type="radio" (click)="pageoder1()" class="form-check-input"  name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary" >Đơn hàng hoàn tất</label>
+  <div class="form-check pr-1 mb-3">
+    <input  type="radio" (click)="pageoder1()" class="form-check-input"  id="1" name="materialExampleRadios">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="1" >Đơn hàng hoàn tất</label>
   </div>
-  <div class="form-check pl-0 mb-3" >
-    <input  type="radio" (click)="pageoder2()" class="form-check-input" name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary"  >Đơn hàng hủy bỏ</label>
+  <div class="form-check pr-1 mb-3" >
+    <input  type="radio" (click)="pageoder2()" class="form-check-input" id="2" name="materialExampleRadios">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="2"  >Đơn hàng hủy bỏ</label>
   </div>
-  <div class="form-check pl-0 mb-3" >
-    <input type="radio" (click)="pageoder3()" class="form-check-input"  name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary" >Đơn hàng được xác nhận</label>
+  <div class="form-check pr-1 mb-3" >
+    <input type="radio" (click)="pageoder3()" class="form-check-input" id="3"  name="materialExampleRadios">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="3" >Đơn hàng được xác nhận</label>
   </div>
-
+  <div class="form-check pr-1 mb-3" >
+    <input type="radio" (click)="pageoder0()" class="form-check-input" id="0" name="materialExampleRadios">
+    <label class="form-check-label small text-uppercase card-link-secondary" for="0" >Đơn hàng mới</label>
+  </div>
 </section>
 <table class="table table-striped text-center">
     <thead>
