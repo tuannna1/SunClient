@@ -14,7 +14,7 @@ export class ProductService {
 
     private productUrl = `${apiUrl}/product`;
     private categoryUrl = `${apiUrl}/category`;
-  private baseurl = 'https://sunrisebackend2020.herokuapp.com/api/delete/product';
+  private baseurl = 'http://localhost:8080/api/delete/product';
   private productUrl1 = `${apiUrl}/product/under25`;
   private productUrl2 = `${apiUrl}/product/from25to50`;
   private productUrl3 = `${apiUrl}/product/from50to100`;

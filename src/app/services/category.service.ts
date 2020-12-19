@@ -13,8 +13,8 @@ import {ProductInfo} from '../models/productInfo';
 export class CategoryService {
 
     private categoryUrl = `${apiUrl}/categoryList`;
-  private baseurl = 'https://sunrisebackend2020.herokuapp.com/api/delete/category';
-  private baseurl1 = 'https://sunrisebackend2020.herokuapp.com/api/categoryy';
+  private baseurl = 'http://localhost:8080/api/delete/category';
+  private baseurl1 = 'http://localhost:8080/api/categoryy';
 
     constructor(private http: HttpClient) {
     }

@@ -1,6 +1,9 @@
 <br/><br/><br/><br/><br/>
 <h1 align="center" class="display-4 ">Chart</h1>
 <section>
+
+
+
   <div >
 <div style="display: block;height: 50%; width: 50%;float: right">
   <div *ngFor="let sum0 of sum0">
@@ -16,10 +19,14 @@
             [legend]="pieChartLegend">
     </canvas>
   </div></div></div></div>
-  <h2 style="text-align: center">Thống kê doanh số bán hàng</h2>
-  <h3 style="text-align: center" *ngFor="let sum of sum">Tổng doanh thu: {{sum.TONG|currency}}  </h3>
+  <h2 style="text-align: center">Sales statistics</h2>
+  <h3 style="text-align: center" *ngFor="let sum of sum">Total revenue:<strong> {{sum.TONG|currency}} </strong> </h3>
 </div>
   </div>
+
+
+
+
   <div >
     <div style="display: block;height: 50%; width: 50%;">
       <div *ngFor="let count0 of count0">
@@ -35,35 +42,31 @@
                       [legend]="pieChartLegend">
               </canvas>
             </div></div></div></div>
-      <h2 style="text-align: center">Thống kê số lượng đơn hàng</h2>
-      <h3 style="text-align: center" *ngFor="let count of count">Tổng số đơn hàng: {{count.SOLUONG}} Đơn </h3>
+      <h2 style="text-align: center">Statistics of the number of orders</h2>
+      <h3 style="text-align: center" *ngFor="let count of count">Total number of orders: <strong>{{count.SOLUONG}} orders</strong> </h3>
     </div>
 
 
   </div>
 </section>
 
-<section class="mb-4" style="margin: 0 20px" >
+<section class="mb-4" style="margin: 20px 20px 0 0" >
 
-  <div class="form-check pr-1 mb-3">
-    <input type="radio" (click)="update()" class="form-check-input" id="all"  name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary" for="all" >Tất cả đơn hàng</label>
-  </div>
-  <div class="form-check pr-1 mb-3">
-    <input  type="radio" (click)="pageoder1()" class="form-check-input"  id="1" name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary" for="1" >Đơn hàng hoàn tất</label>
-  </div>
-  <div class="form-check pr-1 mb-3" >
-    <input  type="radio" (click)="pageoder2()" class="form-check-input" id="2" name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary" for="2"  >Đơn hàng hủy bỏ</label>
-  </div>
-  <div class="form-check pr-1 mb-3" >
-    <input type="radio" (click)="pageoder3()" class="form-check-input" id="3"  name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary" for="3" >Đơn hàng được xác nhận</label>
-  </div>
-  <div class="form-check pr-1 mb-3" >
-    <input type="radio" (click)="pageoder0()" class="form-check-input" id="0" name="materialExampleRadios">
-    <label class="form-check-label small text-uppercase card-link-secondary" for="0" >Đơn hàng mới</label>
+  <div class="check" style="margin-left: 640px" >
+    <input style="margin: 5px 10px 0 0 " type="radio" (click)="update()" class="form-check-input" id="all"  name="materialExampleRadios">
+    <label style="margin: 0 20px" class="form-check-label small text-uppercase card-link-secondary" for="all" >All orders</label>
+
+    <input  style="margin: 5px 10px 0 0 " type="radio" (click)="pageoder1()" class="form-check-input"  id="1" name="materialExampleRadios">
+    <label  style="margin: 0 20px" class="form-check-label small text-uppercase card-link-secondary" for="1" >Finished order</label>
+
+    <input style="margin: 5px 10px 0 0 " type="radio" (click)="pageoder2()" class="form-check-input" id="2" name="materialExampleRadios">
+    <label style="margin: 0 20px" class="form-check-label small text-uppercase card-link-secondary" for="2" >Cenceled order</label>
+
+    <input style="margin: 5px 10px 0 0 " type="radio" (click)="pageoder3()" class="form-check-input" id="3"  name="materialExampleRadios">
+    <label style="margin: 0 20px" class="form-check-label small text-uppercase card-link-secondary" for="3" >Approved order</label>
+
+    <input style="margin: 5px 10px 0 0 " type="radio" (click)="pageoder0()" class="form-check-input" id="0" name="materialExampleRadios">
+    <label style="margin: 0 20px"  class="form-check-label small text-uppercase card-link-secondary" for="0" >New orders</label>
   </div>
 
 </section>

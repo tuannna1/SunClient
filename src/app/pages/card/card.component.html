@@ -101,12 +101,8 @@
                          </button>
                       </div>
                             <ng-template #offBlock><button  class="btn btn-dark btn-sm px-3 mr-1 mb-2">Unavailable</button></ng-template>
-                            <button type="button" class="btn btn-secondary btn-sm px-3 mr-1 mb-2" routerLink="/product/{{productInfo.productId}}" >
-                              <i class="fa fa-eye"></i>
-                            </button>
-                            <button type="button" class="btn btn-danger btn-sm px-3 mr-1 mb-2 material-tooltip-main"
-                                    data-toggle="tooltip" data-placement="top" title="Add to wishlist" (click)="addToFavorite(productInfo)">
-                              <i class="fa fa-heart"></i>
+                            <button type="button" class="btn btn-warning btn-sm px-3 mr-1 mb-2" routerLink="/product/{{productInfo.productId}}" >
+                              <i class="fa fa-eye"></i> Detail
                             </button>
 
                         <!--Card footer-->
