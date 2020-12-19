@@ -100,7 +100,9 @@
   "SIGNUP12": "Địa chỉ là bắt buộc.",
   "SIGNUP13": "Đăng ký",
 
-
+  "News": "Mới nhất",
+  "Bestsellers": "Bán chạy nhất",
+  "Suggestions": "Đề xuất",
 
   "SLIDE1": "Glittered Knuckle-Ring Clutch",
   "SLIDE2": "Tinh tế, sang trọng và quý phái",
@@ -126,7 +128,7 @@
   "Price": "Giá",
   "Stock": "Kho",
   "Quantity": "Số lượng",
-  "Description": "Mô tả sản phẩm:",
+  "Description": "Mô tả sản phẩm",
   "Status": "Trạng thái",
   "Subtotal": "Tạm tính",
   "Add to Cart": "Thêm vào giỏ hàng",

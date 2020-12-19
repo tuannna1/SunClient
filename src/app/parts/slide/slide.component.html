@@ -61,42 +61,6 @@
   </div>
 
 
-<!--<div class="container">-->
-<!--  <div class="row">-->
-<!--    <div class="col-md-12">-->
-<!--      <h3>Default Tab</h3>-->
-
-<!--      <div class="tabbable-panel">-->
-<!--        <div class="tabbable-line">-->
-<!--          <ul class="nav nav-tabs ">-->
-<!--            <li class="active">-->
-<!--              <a href="#tab_default_1" data-toggle="tab">-->
-<!--                Tab 1 </a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="#tab_default_2" data-toggle="tab">-->
-<!--                Tab 2 </a>-->
-<!--            </li>-->
-<!--            <li>-->
-<!--              <a href="#tab_default_3" data-toggle="tab">-->
-<!--                Tab 3 </a>-->
-<!--            </li>-->
-<!--          </ul>-->
-<!--          <div class="tab-content">-->
-<!--            <div class="tab-pane active" id="tab_default_1">-->
-<!--              <app-best-product></app-best-product>-->
-<!--            </div>-->
-<!--            <div class="tab-pane" id="tab_default_2">-->
-<!--              <app-new-product></app-new-product>-->
-<!--            </div>-->
-
-<!--          </div>-->
-<!--        </div>-->
-<!--      </div>-->
-
-<!--    </div>-->
-<!--  </div>-->
-<!--</div>-->
 <br/><br/><br/>
 
 <section class=" ">
@@ -105,10 +69,9 @@
       <div class="col-md-12 text-center ">
         <nav class="nav-justified ">
           <div class="nav nav-tabs " id="nav-tab" role="tablist">
-            <a class="nav-item nav-link active" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true">News</a>
-            <a class="nav-item nav-link" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false">Bestsellers</a>
-            <a class="nav-item nav-link" id="pop3-tab" data-toggle="tab" href="#pop3" role="tab" aria-controls="pop3" aria-selected="false">Suggestions</a>
-
+            <a class="nav-item nav-link active" id="pop1-tab" data-toggle="tab" href="#pop1" role="tab" aria-controls="pop1" aria-selected="true"> {{ this.translate.data["News"] | translate }}</a>
+            <a class="nav-item nav-link" id="pop2-tab" data-toggle="tab" href="#pop2" role="tab" aria-controls="pop2" aria-selected="false"> {{ this.translate.data["Bestsellers"] | translate }}</a>
+            <a class="nav-item nav-link" id="pop3-tab" data-toggle="tab" href="#pop3" role="tab" aria-controls="pop3" aria-selected="false"> {{ this.translate.data["Suggestions"] | translate }}</a>
           </div>
         </nav>
         <div class="tab-content" id="nav-tabContent">

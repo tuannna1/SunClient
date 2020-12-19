@@ -168,11 +168,11 @@
 
         <ng-container *ngIf="currentUser; else noUser">
           <li><a *ngIf="currentUser.role != Role.Customer" class="nav-item nav-link " routerLink="/categoryList">
-            <i class="fas fa-list-ul"></i>
+            <i class="fab fa-artstation"></i>
             Category
           </a></li>
           <li><a *ngIf="currentUser.role != Role.Customer" class="nav-item nav-link " routerLink="/productList">
-            <i class="fas fa-list-ul"></i>
+            <i class="far fa-file-alt"></i>
             Products
           </a></li>
           <li><a class="nav-item nav-link " routerLink="/order">
@@ -180,11 +180,11 @@
             {{ this.translate.data["Orders"] | translate }}
           </a></li>
           <li><a *ngIf="currentUser.role != Role.Customer" class="nav-item nav-link " routerLink="/userList">
-            <i class="fas fa-list-ul"></i>
+            <i class="fas fa-user"></i>
             Users
           </a></li>
           <li><a *ngIf="!currentUser || currentUser.role == Role.Manager" class="nav-item nav-link " routerLink="/chart">
-            <i class="fas fa-list-ul"></i>
+            <i class="fas fa-chart-bar"></i>
             Chart
           </a></li>
           <li><a class="nav-item nav-link " routerLink="/profile">

@@ -62,6 +62,10 @@
   "SIGNUP12": "Address is required.",
   "SIGNUP13": "Registration",
 
+  "News": "News",
+  "Bestsellers": "Bestsellers",
+  "Suggestions": "Suggestions",
+
 
   "LOGIN1": "Sign In",
   "LOGIN2": "Invalid username and password.",

@@ -78,7 +78,7 @@ const routes: Routes = [
         path: 'seller/product/new',
         component: ProductNewComponent,
         canActivate: [AuthGuard],
-        data: {roles: [Role.Employee]}
+        data: {roles: [Role.Employee,Role.Manager]}
     },
   {
     path: 'categoryList',
