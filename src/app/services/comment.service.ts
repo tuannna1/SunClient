@@ -11,7 +11,7 @@ import {User} from '../models/User';
 })
 export class CommentService {
   private commentUrl = `${apiUrl}/comment`;
-  private baseurl = 'http://localhost:8080/api/delete/product';
+  private baseurl = 'https://sunrisebackend2020.herokuapp.com/api/delete/product';
 
   constructor(private http: HttpClient) {
 
