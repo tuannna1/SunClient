@@ -43,21 +43,5 @@
         <button [disabled]="!form.form.valid" type="submit" class="btn btn-lg btn-primary btn-block">{{ this.translate.data["LOGIN10"] | translate }}</button>
       </div>
     </form>
-
-    <strong>Sample Users</strong>
-    <table style="width: 100%;" id="sampleLoginTable">
-      <tr>
-        <td><a
-          (click)="fillLoginFields('quynhly@g.com','123456')"
-          href="javascript:void(0)">customer1</a></td>
-        <td><a
-          (click)="fillLoginFields('employee1@gmail.com','123456')"
-          href="javascript:void(0)">employee1</a></td>
-        <td><a
-          (click)="fillLoginFields('admin@admin.com','12345678')"
-          href="javascript:void(0)">admin</a></td>
-      </tr>
-    </table>
-
   </div>
 </div>
